@@ -18,7 +18,9 @@ public class Circle {
         return radius;
     }
 
-
+    public void setCenter(Point center) {
+        this.center = center;
+    }
 
     @Override
     public String toString() {
