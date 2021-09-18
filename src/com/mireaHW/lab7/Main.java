@@ -18,7 +18,7 @@ public class Main {
         System.out.println(plate);
 
         Mastiff mastiff = new Mastiff(3);
-        mastiff.saturate(34); // Not r
+        mastiff.saturate(34);
         System.out.println(mastiff);
 
         Dachshund dachshund = new Dachshund(1);
