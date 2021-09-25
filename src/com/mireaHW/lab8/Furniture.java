@@ -22,6 +22,10 @@ public abstract class Furniture {
         return material;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
     @Override
     public String toString() {
         return "Furniture{" +
