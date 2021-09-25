@@ -56,11 +56,10 @@ public class FurnitureShop {
             Scanner scanner = new Scanner(System.in);
             cart.remove(scanner.nextInt() - 1);
             cash -= cart.lastElement().getPrice();
-            System.out.println();
         } else {
             System.out.println("В корзине нет товаров!");
-            System.out.println();
         }
+        System.out.println();
     }
 
     private void addCart() {
