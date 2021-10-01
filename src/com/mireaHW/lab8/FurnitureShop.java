@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.Vector;
 
 public class FurnitureShop {
-    private Vector cart = new Vector(0);
+    private Vector<Furniture> cart = new Vector(0);
     private int cash = 0;
 
     public int getCash() {
@@ -22,7 +22,7 @@ public class FurnitureShop {
             System.out.println("Выберите опцию: ");
             System.out.println("1) Добавить в корзину");
             System.out.println("2) Убрать из корзины");
-            System.out.println("3) Подсчитать итоговую стоимость (временно не работает!)");
+            System.out.println("3) Подсчитать итоговую стоимость");
             System.out.println("4) Выход");
             Scanner scanner = new Scanner(System.in);
             sw = scanner.nextInt();
@@ -36,6 +36,7 @@ public class FurnitureShop {
                     break;
                 case 3:
                     System.out.println(cash);
+                    System.out.println();
                     break;
                 default:
                     System.out.println();
@@ -54,11 +55,11 @@ public class FurnitureShop {
 
             Scanner scanner = new Scanner(System.in);
             cart.remove(scanner.nextInt() - 1);
-            System.out.println();
+            cash -= cart.lastElement().getPrice();
         } else {
             System.out.println("В корзине нет товаров!");
-            System.out.println();
         }
+        System.out.println();
     }
 
     private void addCart() {
@@ -103,6 +104,7 @@ public class FurnitureShop {
                 System.out.println();
                 break;
         }
+        cash += cart.lastElement().getPrice();
         System.out.println();
     }
 
