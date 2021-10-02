@@ -1,14 +1,24 @@
 package com.mireaHW.lab9_10;
 
-public class Employee{
+public abstract class Employee {
     private String name, subName, job;
-    private int salary;
+    private double salary, incomeOne;
+    private Company company;
 
-    public Employee(String name, String subName, String job, int salary) {
+    public Employee(String name, String subName, String job, double salary) {
         this.name = name;
         this.subName = subName;
         this.job = job;
         this.salary = salary;
+        this.incomeOne = Math.random() * 26000 + 115000;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public Company getCompany() {
+        return company;
     }
 
     public String getName() {
@@ -23,7 +33,11 @@ public class Employee{
         return job;
     }
 
-    public int getSalary() {
+    public double getSalary() {
         return salary;
+    }
+
+    public double getIncomeOne() {
+        return incomeOne;
     }
 }
