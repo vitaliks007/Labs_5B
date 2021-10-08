@@ -40,4 +40,16 @@ public abstract class Employee {
     public double getIncomeOne() {
         return incomeOne;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", subName='" + subName + '\'' +
+                ", job='" + job + '\'' +
+                ", salary=" + salary +
+                ", incomeOne=" + incomeOne +
+                ", company=" + company +
+                '}';
+    }
 }

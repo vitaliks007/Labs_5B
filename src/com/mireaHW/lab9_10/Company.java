@@ -33,15 +33,15 @@ public class Company {
         return this.income;
     }
 
-    List getTopSalaryStaff(int count){
-        ErrorCatcher.employeesCountException(this, count);
-        return this.getStaff().stream().sorted(Comparator.comparing(Employee::getIncomeOne))
-                .collect(Collectors.toList());
-    }
-
     List getLowestSalaryStaff(int count){
         ErrorCatcher.employeesCountException(this, count);
-        return this.getStaff().stream().sorted(Comparator.comparing(Employee::getIncomeOne).reversed())
-                .collect(Collectors.toList());
+        return this.getStaff().stream().sorted(Comparator.comparing(Employee::getSalary))
+                .limit(count).collect(Collectors.toList());
+    }
+
+    List getTopSalaryStaff(int count){
+        ErrorCatcher.employeesCountException(this, count);
+        return this.getStaff().stream().sorted(Comparator.comparing(Employee::getSalary).reversed())
+                .limit(count).collect(Collectors.toList());
     }
 }

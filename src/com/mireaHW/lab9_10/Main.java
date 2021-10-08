@@ -20,6 +20,8 @@ public class Main {
             company.hire(new TopManager(Integer.toString(i), Integer.toString(i), "TopManager",
                     Randomizer.rand(20000, 100000)));
         }
+
+        System.out.println(company.getTopSalaryStaff(15));
     }
 }
 
