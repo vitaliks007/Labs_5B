@@ -22,10 +22,14 @@ public class TopManager extends Employee implements EmployeePosition {
     public double calcSalary() {
         double bonusSalary = 0;
         double sum;
-        //1.5 * this.getSalary()
-        List<Employee> filteredEmp = this.getCompany().getStaff().stream()
+
+        sum = this.getCompany().getStaff().stream()
                 .filter(i -> i.getJob().equals("Manager") || i.getJob().equals("Operator"))
-                .collect(Collectors.toList());
+                .mapToDouble(Employee::getSalary).sum();
+
+        if (sum > 10000000) {
+            bonusSalary = 1.5 * this.getSalary();
+        }
 
         return this.getSalary() + bonusSalary;
     }

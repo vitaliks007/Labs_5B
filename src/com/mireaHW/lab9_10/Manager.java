@@ -1,7 +1,7 @@
 package com.mireaHW.lab9_10;
 
 public class Manager extends Employee implements EmployeePosition{
-    public Manager(String name, String subName, String jobTitle, int salary) {
+    public Manager(String name, String subName, String jobTitle, double salary) {
         super(name, subName, jobTitle, salary);
     }
 

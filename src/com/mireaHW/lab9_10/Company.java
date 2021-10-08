@@ -1,6 +1,9 @@
 package com.mireaHW.lab9_10;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Company {
     private ArrayList<Employee> staff = new ArrayList<>();
@@ -28,5 +31,17 @@ public class Company {
 
     public double getIncome() {
         return this.income;
+    }
+
+    List getTopSalaryStaff(int count){
+        ErrorCatcher.employeesCountException(this, count);
+        return this.getStaff().stream().sorted(Comparator.comparing(Employee::getIncomeOne))
+                .collect(Collectors.toList());
+    }
+
+    List getLowestSalaryStaff(int count){
+        ErrorCatcher.employeesCountException(this, count);
+        return this.getStaff().stream().sorted(Comparator.comparing(Employee::getIncomeOne).reversed())
+                .collect(Collectors.toList());
     }
 }

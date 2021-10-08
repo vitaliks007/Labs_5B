@@ -10,7 +10,7 @@ public abstract class Employee {
         this.subName = subName;
         this.job = job;
         this.salary = salary;
-        this.incomeOne = Math.random() * 26000 + 115000;
+        this.incomeOne = Randomizer.rand(115000, 140000);
     }
 
     public void setCompany(Company company) {
