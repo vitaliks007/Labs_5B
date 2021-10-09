@@ -25,6 +25,14 @@ public class Company {
         this.income -= this.staff.get(index).getIncomeOne();
     }
 
+    public void fireCount(int count) {
+        if (!ErrorCatcher.employeesCountException(this, count)) {
+            for (int i = 0; i < count; i++) {
+                fire(i);
+            }
+        }
+    }
+
     public ArrayList<Employee> getStaff() {
         return staff;
     }
@@ -34,14 +42,20 @@ public class Company {
     }
 
     List getLowestSalaryStaff(int count){
-        ErrorCatcher.employeesCountException(this, count);
-        return this.getStaff().stream().sorted(Comparator.comparing(Employee::getSalary))
-                .limit(count).collect(Collectors.toList());
+        if (!ErrorCatcher.employeesCountException(this, count)) {
+            return this.getStaff().stream().sorted(Comparator.comparing(Employee::getSalary))
+                    .limit(count).collect(Collectors.toList());
+        } else {
+            return null;
+        }
     }
 
     List getTopSalaryStaff(int count){
-        ErrorCatcher.employeesCountException(this, count);
-        return this.getStaff().stream().sorted(Comparator.comparing(Employee::getSalary).reversed())
-                .limit(count).collect(Collectors.toList());
+        if (!ErrorCatcher.employeesCountException(this, count)) {
+            return this.getStaff().stream().sorted(Comparator.comparing(Employee::getSalary).reversed())
+                    .limit(count).collect(Collectors.toList());
+        } else {
+            return null;
+        }
     }
 }
