@@ -38,8 +38,9 @@ public class Main {
     public static void main(String[] args) {
         //Text here
         Scanner scanner = new Scanner(System.in);
+        num1(scanner.nextLine());
+        num2(scanner.nextLine());
         num3(scanner.nextLine());
-
     }
 }
 
